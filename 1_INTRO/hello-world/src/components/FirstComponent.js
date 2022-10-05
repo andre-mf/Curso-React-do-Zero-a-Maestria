@@ -1,4 +1,4 @@
-const FistComponent = () => {
+const FirstComponent = () => {
   return (
     <div>
       <h1>Meu primeiro componentne</h1>
@@ -6,4 +6,4 @@ const FistComponent = () => {
   )
 }
 
-export default FirstCompoment;
+export default FirstComponent;
