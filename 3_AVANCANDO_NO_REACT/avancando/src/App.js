@@ -6,15 +6,16 @@ import ConditionalRender from "./components/ConditionalRender";
 import ShowUserName from "./components/ShowUserName";
 import {useState} from "react";
 import CarDetails from "./components/CarDetails";
+import Fragment from "./components/Fragment";
 
 function App() {
-  const name = "Joaquim";
+  // const name = "Joaquim";
   const [userName] = useState("Maria");
 
   const cars = [
-    { id: 1, brand: "Ferrari", color: "Amarelo", newCar: true, km: 0 },
-    { id: 2, brand: "KIA", color: "Branco", newCar: false, km: 200000 },
-    { id: 3, brand: "Renault", color: "Azul", newCar: false, km: 32000 },
+    {id: 1, brand: "Ferrari", color: "Amarelo", newCar: true, km: 0},
+    {id: 2, brand: "KIA", color: "Branco", newCar: false, km: 200000},
+    {id: 3, brand: "Renault", color: "Azul", newCar: false, km: 32000},
   ];
 
   return (
@@ -46,6 +47,8 @@ function App() {
           newCar={car.newCar}
         />
       ))}
+      {/*  fragment */}
+      <Fragment propFragment="teste"/>
     </div>
   );
 }
