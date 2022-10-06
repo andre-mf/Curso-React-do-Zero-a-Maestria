@@ -9,6 +9,8 @@ import CarDetails from "./components/CarDetails";
 import Fragment from "./components/Fragment";
 import Container from "./components/Container";
 import ExecuteFunctions from "./components/ExecuteFunctions";
+import Message from "./components/Message";
+import ChangeMessageState from "./components/ChangeMessageState";
 
 function App() {
   // const name = "Joaquim";
@@ -23,6 +25,12 @@ function App() {
   function showMessage() {
     console.log("Evento do componente pai!");
   }
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  };
 
   return (
     <div className="App">
@@ -63,8 +71,11 @@ function App() {
       <Container myValue="testing 2">
         <h5>Testando o container</h5>
       </Container>
-      {/* executar funcção*/}
+      {/* executar função */}
       <ExecuteFunctions myFunction={showMessage}/>
+      {/* state lift */}
+      <Message msg={message}/>
+      <ChangeMessageState handleMessage={handleMessage}/>
     </div>
   );
 }
