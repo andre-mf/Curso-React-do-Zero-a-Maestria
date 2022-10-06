@@ -7,6 +7,7 @@ import ShowUserName from "./components/ShowUserName";
 import {useState} from "react";
 import CarDetails from "./components/CarDetails";
 import Fragment from "./components/Fragment";
+import Container from "./components/Container";
 
 function App() {
   // const name = "Joaquim";
@@ -49,6 +50,13 @@ function App() {
       ))}
       {/*  fragment */}
       <Fragment propFragment="teste"/>
+      {/*  children */}
+      <Container myValue="testing">
+        <p>E este é o conteúdo</p>
+      </Container>
+      <Container myValue="testing 2">
+        <h5>Testando o container</h5>
+      </Container>
     </div>
   );
 }
