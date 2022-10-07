@@ -1,8 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import MyComponent from "./components/MyComponent";
+import {useState} from "react";
 
 function App() {
+  const n = 15;
+  const [name] = useState("Matheus");
+
   return (
     <div className="App">
       {/* CSS global */}
@@ -20,6 +23,20 @@ function App() {
       >
         Este elemento foi estilizadod e forma inline
       </p>
+      {/* Dinâmico css */}
+      <h2 style={n > 10 ? {color: "purple"} : {color: "magenta"}}>
+        CSS dinâmico
+      </h2>
+      <h2 style={n < 10 ? {color: "purple"} : {color: "magenta"}}>
+        CSS dinâmico
+      </h2>
+      <h2 style={
+        name === "Matheus"
+          ? {color: "green", backgroundColor: "#000"}
+          : null}
+      >
+        Teste nome
+      </h2>
     </div>
   );
 }
