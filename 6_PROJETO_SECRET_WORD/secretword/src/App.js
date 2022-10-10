@@ -2,7 +2,7 @@
 import './App.css';
 
 // React
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // data
 import {wordsList} from "./data/words";
@@ -17,6 +17,8 @@ const stages = [
   {id: 2, name: "game"},
   {id: 3, name: "end"}
 ];
+
+const guessesQty = 3;
 
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
@@ -96,8 +98,26 @@ function App() {
     }
   };
 
+  const clearLetterState = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  }
+
+  useEffect(() => {
+    if (guesses <= 0) {
+      // reset all stages
+      clearLetterState();
+
+      setGameStage(stages[2].name);
+    }
+  }, [guesses]);
+
+
   // restarts the game
   const retry = () => {
+    setScore(0);
+    setGuesses(guessesQty);
+
     setGameStage(stages[0].name);
   };
 
